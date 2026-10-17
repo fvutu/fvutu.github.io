@@ -217,6 +217,15 @@ img, video{ max-width: 100%; }
 .page h2[data-outline]{ scroll-margin-top: calc(var(--nav-h) + 24px); }
 @media (max-width: 760px){ .outline{ right: 12px; bottom: 12px; } .outline-panel{ width: 210px; } }
 @media (prefers-reduced-motion: reduce){ .nav-menu, .to-top, .outline-toggle svg{ transition: none; } }
+
+/* ---------- click to enlarge: fit the whole image on screen, no scrolling ---------- */
+body > .skz-ov{ display: none !important; position: fixed; inset: 0; z-index: 1000; box-sizing: border-box; padding: 48px; overflow: hidden; align-items: center; justify-content: center; background: rgba(20,18,16,.97); cursor: zoom-out; }
+body > .skz-ov.is-open{ display: flex !important; animation: lb-in .2s ease both; }
+body > .skz-ov img{ display: block; width: auto !important; height: auto !important; max-width: 100% !important; max-height: 100% !important; margin: 0 !important; object-fit: contain; border-radius: 5px; }
+html.lb-open{ overflow: hidden; }
+@keyframes lb-in{ from{ opacity: 0; } to{ opacity: 1; } }
+@media (max-width: 760px){ body > .skz-ov{ padding: 64px 12px; } }
+@media (prefers-reduced-motion: reduce){ body > .skz-ov.is-open{ animation: none; } }
 </style>
 </head>
 <body>
@@ -461,7 +470,7 @@ img, video{ max-width: 100%; }
 <div style="grid-column: 6 / span 7; display: flex; flex-direction: column; gap: 6px; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-style: italic; font-size: clamp(24px, 2.222vw, 32px); line-height: 1.1; letter-spacing: -0.01em">
 <div style="font-size: 24px; line-height: 1.1">…what book I’m reading now</div>
 <div style="font-size: 24px; line-height: 1.1">…my time as a radio show host</div>
-<div style="font-size: 24px; line-height: 1.1">…the screenplay still yet to put to page</div>
+<div style="font-size: 24px; line-height: 1.1">…the screenplay I’ve yet to put to page</div>
 </div>
 </div>
 </section>
@@ -547,7 +556,7 @@ img, video{ max-width: 100%; }
 </div>
 <h1 style="margin: 32px 0 0 0; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; font-size: clamp(35px, 5.000vw, 72px); line-height: 0.85; letter-spacing: -0.03em">weekly job summary</h1>
 <div style="margin-top: calc(48px * var(--vy)); padding-top: 24px; border-top: 1px solid #141210">
-<dl style="margin: 0 0 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 32px"><div style="display: flex; flex-direction: column; gap: 8px"><dt style="font-size: 11px; text-transform: uppercase; color: #5E574D; font-weight: 600; letter-spacing: 0.16em">Scope</dt><dd style="margin: 0 0 0 0; font-size: 16px; line-height: 1.45">Content design</dd></div><div style="display: flex; flex-direction: column; gap: 8px"><dt style="font-size: 11px; text-transform: uppercase; color: #5E574D; font-weight: 600; letter-spacing: 0.16em">Company</dt><dd style="margin: 0 0 0 0; font-size: 16px; line-height: 1.45">Indeed</dd></div><div style="display: flex; flex-direction: column; gap: 8px"><dt style="font-size: 11px; text-transform: uppercase; color: #5E574D; font-weight: 600; letter-spacing: 0.16em">For</dt><dd style="margin: 0 0 0 0; font-size: 16px; line-height: 1.45">Employers across all m10n streams</dd></div><div style="display: flex; flex-direction: column; gap: 8px"><dt style="font-size: 11px; text-transform: uppercase; color: #5E574D; font-weight: 600; letter-spacing: 0.16em">With</dt><dd style="margin: 0 0 0 0; font-size: 16px; line-height: 1.45">UX, product, marketing</dd></div></dl>
+<dl style="margin: 0 0 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 32px"><div style="display: flex; flex-direction: column; gap: 8px"><dt style="font-size: 11px; text-transform: uppercase; color: #5E574D; font-weight: 600; letter-spacing: 0.16em">Scope</dt><dd style="margin: 0 0 0 0; font-size: 16px; line-height: 1.45">Content design</dd></div><div style="display: flex; flex-direction: column; gap: 8px"><dt style="font-size: 11px; text-transform: uppercase; color: #5E574D; font-weight: 600; letter-spacing: 0.16em">Company</dt><dd style="margin: 0 0 0 0; font-size: 16px; line-height: 1.45">Indeed</dd></div><div style="display: flex; flex-direction: column; gap: 8px"><dt style="font-size: 11px; text-transform: uppercase; color: #5E574D; font-weight: 600; letter-spacing: 0.16em">For</dt><dd style="margin: 0 0 0 0; font-size: 16px; line-height: 1.45">Employers across all monetization streams</dd></div><div style="display: flex; flex-direction: column; gap: 8px"><dt style="font-size: 11px; text-transform: uppercase; color: #5E574D; font-weight: 600; letter-spacing: 0.16em">With</dt><dd style="margin: 0 0 0 0; font-size: 16px; line-height: 1.45">UX, product, marketing</dd></div></dl>
 </div>
 </section>
 
@@ -649,7 +658,7 @@ img, video{ max-width: 100%; }
 <div style="border-top: 1px solid #F6F3EE; padding-top: 16px; display: flex; flex-direction: column; gap: 10px"><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #C8102E; font-size: clamp(46px, 6.667vw, 96px); line-height: 1; letter-spacing: -0.015em">6.85%</div><div style="font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace; font-size: 14px; letter-spacing: 0.04em; color: #d9d3c8"><b>+39.7%</b>&nbsp;vs. control&nbsp;· click-to-open (CTOR)</div></div>
 <div style="border-top: 1px solid #F6F3EE; padding-top: 16px; display: flex; flex-direction: column; gap: 10px"><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #C8102E; font-size: clamp(46px, 6.667vw, 96px); line-height: 1; letter-spacing: -0.015em">3.05%</div><div style="font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace; font-size: 14px; letter-spacing: 0.04em; color: #d9d3c8"><b>+49.3%</b> vs. control · click-through (CTR)</div></div>
 </div>
-<p style="grid-column: 1 / span 8; margin: 40px 0 0 0; font-size: 19px; line-height: 1.7; color: #F6F3EE; width: 955px; max-width: 100%">Those who opened the email were <b>far likelier to click</b>. A clearer, action-oriented subject line set accurate expectations of what's inside. Catchier subjects were usually risky at Indeed, but here, it resulted in more conversions.&nbsp;</p>
+<p style="grid-column: 1 / span 8; margin: 40px 0 0 0; font-size: 19px; line-height: 1.7; color: #F6F3EE; width: 955px; max-width: 100%">Those who opened the email were <b>far likelier to click</b>. A clearer, action-oriented subject line set accurate expectations of what's inside. Catchier subjects were usually risky at Indeed, but here, it resulted in more clicks.&nbsp;</p>
 
 <div style="grid-column: 1 / -1; margin-top: calc(64px * var(--vy)); font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #fafafa; font-size: clamp(24px, 2.222vw, 32px); line-height: 1.1; letter-spacing: -0.01em">the lift landed on the CTA</div>
 
@@ -658,7 +667,7 @@ img, video{ max-width: 100%; }
 <div style="border-top: 1px solid #F6F3EE; padding-top: 16px; display: flex; flex-direction: column; gap: 10px"><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #C8102E; font-size: clamp(46px, 6.667vw, 96px); line-height: 1; letter-spacing: -0.015em">~48%</div><div style="font-size: 14px; color: #d9d3c8; font-family: IBM Plex Mono; letter-spacing: 0.04px">Share of the clicks from <b>1 CTA</b></div></div>
 <div style="border-top: 1px solid #F6F3EE; padding-top: 16px; display: flex; flex-direction: column; gap: 10px"><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #C8102E; font-size: clamp(46px, 6.667vw, 96px); line-height: 1; letter-spacing: -0.015em">–17.8%</div><div style="font-size: 14px; color: #d9d3c8; font-family: IBM Plex Mono; letter-spacing: 0.04px">Unsubscribe clicks: <b>fewer opt-outs</b></div></div>
 </div>
-<p style="grid-column: 1 / span 8; margin: 40px 0 0 0; font-size: 19px; line-height: 1.7; color: #F6F3EE; width: 955px; max-width: 100%"><i>View candidates</i> rose <b>4-5x</b> the other main CTAs. The test specifically pushed more employers to review their applicants, the action “check in on your job status” invites.&nbsp;<b>The framing delivered on its promise.</b></p>
+<p style="grid-column: 1 / span 8; margin: 40px 0 0 0; font-size: 19px; line-height: 1.7; color: #F6F3EE; width: 955px; max-width: 100%"><i>View candidates</i> rose <b>4–5×</b>&nbsp;the other main CTAs. The test specifically pushed more employers to review their applicants, the action “check in on your job status” invites.&nbsp;<b>The framing delivered on its promise.</b></p>
 </section>
 
 <!-- ========== IMPACT ========== -->
@@ -669,7 +678,7 @@ img, video{ max-width: 100%; }
 <h2 style="grid-column: 1 / -1; margin: 0 0 40px 0; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; margin-bottom: 32px; font-size: clamp(24px, 3.333vw, 48px); line-height: 1.05; letter-spacing: -0.01em">setting new defaults in my first month</h2>
 
 <div style="grid-column: 1 / span 7; display: flex; flex-direction: column; gap: 24px; font-size: 19px; line-height: 1.7; width: 1254px; max-width: calc(100vw - 2 * var(--gx))">
-<p style="margin: 0 0 0 0; width: 1254px; max-width: calc(100vw - 2 * var(--gx))">Each lift was steady with a palpable business impact: <b>49% more clicks per email</b>. My versions are now the default for Weekly Job Summary campaigns.</p>
+<p style="margin: 0 0 0 0; width: 1254px; max-width: calc(100vw - 2 * var(--gx))">Each lift was steady with a clear business impact: <b>49% more clicks per email</b>. My versions are now the default for Weekly Job Summary campaigns.</p>
 <p style="margin: 0 0 0 0; width: 1254px; max-width: calc(100vw - 2 * var(--gx))">Throughout my work, you’ll find me as the first or founding content designer and teaching partners how to work with me. Indeed didn't have email-specific content design, so I made <b>an email-specific framework.</b> The Weekly Job Summary was the most significant campaign I partnered on, and altogether they formed how I structured Indeed’s email content framework, then trained its internal content MCP.</p>
 </div></section>
 
@@ -990,7 +999,7 @@ img, video{ max-width: 100%; }
 
 <!-- ========== ROLE ========== -->
 <section style="flex-shrink: 0; padding: calc(64px * var(--vy)) var(--gx) 0 var(--gx)">
-<p style="margin: 0 0 0 0; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; max-width: min(640px, 100%); width: 764px; font-size: clamp(24px, 2.222vw, 32px); line-height: 1.1; letter-spacing: -0.01em">I led the foundational work and designed <span style="font-style: italic; color: rgb(200, 16, 46)">how the assistant would put them to use.</span></p>
+<p style="margin: 0 0 0 0; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; max-width: min(640px, 100%); width: 764px; font-size: clamp(24px, 2.222vw, 32px); line-height: 1.1; letter-spacing: -0.01em">I led the foundational work and designed <span style="font-style: italic; color: rgb(200, 16, 46)">how the assistant would put it to use.</span></p>
 </section>
 
 
@@ -1524,7 +1533,7 @@ img, video{ max-width: 100%; }
 
 <!-- ========== THESIS ========== -->
 <section style="flex-shrink: 0; padding: calc(64px * var(--vy)) var(--gx) calc(64px * var(--vy)) var(--gx); padding-top: calc(96px * var(--vy)); padding-bottom: calc(96px * var(--vy))">
-<h2 style="margin: 0 0 0 0; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; text-align: center; font-size: clamp(24px, 2.500vw, 36px); line-height: 1; letter-spacing: -0.01em">Innovating <b>personalized</b> chat customization for CX.</h2>
+<h2 style="margin: 0 0 0 0; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; text-align: center; font-size: clamp(24px, 2.500vw, 36px); line-height: 1; letter-spacing: -0.01em">Personalizing how an AI assistant <b>speaks to CX teams</b>.</h2>
 </section>
 
 <!-- ========== OPENING (drop cap) ========== -->
@@ -1551,7 +1560,7 @@ img, video{ max-width: 100%; }
 <div style="grid-column: 9 / span 4; display: flex; flex-direction: column; border-bottom: 1px solid #D9D3C8">
 <div style="border-top: 1px solid #D9D3C8; padding: 16px 0 16px 0; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #8A8378; text-decoration: line-through; text-decoration-thickness: 1px; font-size: 24px; line-height: 1.15">witty</div><div style="font-size: 16px; line-height: 1.5">Didn't match a product built for serious, professional work</div></div>
 <div style="border-top: 1px solid #D9D3C8; padding: 16px 0 16px 0; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #8A8378; text-decoration: line-through; text-decoration-thickness: 1px; font-size: 24px; line-height: 1.15">confident</div><div style="font-size: 16px; line-height: 1.5">Implies its opposite exists elsewhere; a bad signal for a tool meant to help people trust their own data</div></div>
-<div style="border-top: 1px solid #D9D3C8; padding: 16px 0 16px 0; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #8A8378; text-decoration: line-through; text-decoration-thickness: 1px; font-size: 24px; line-height: 1.15">personable, direct</div><div style="font-size: 16px; line-height: 1.5">Voice traits masquerading as tone</div></div>
+<div style="border-top: 1px solid #D9D3C8; padding: 16px 0 16px 0; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #8A8378; text-decoration: line-through; text-decoration-thickness: 1px; font-size: 24px; line-height: 1.15">personable, engaging, direct</div><div style="font-size: 16px; line-height: 1.5">Voice traits masquerading as tone</div></div>
 <div style="border-top: 1px solid #D9D3C8; padding: 16px 0 16px 0; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #C8102E; font-size: 24px; line-height: 1.15">empathetic</div><div style="font-size: 16px; line-height: 1.5">Only one that held up, but it's standard</div></div>
 </div>
 <p style="grid-column: 1 / span 7; align-self: start; margin: calc(64px * var(--vy)) 0 0 0; font-size: 19px; width: 512px; max-width: 100%; color: #141210; line-height: 1.1"><span style="font-family: Didot, 'Bodoni Moda', 'Bodoni 72', serif; font-size: clamp(24px, 2.222vw, 32px); line-height: 1.1; letter-spacing: -0.01em">I led end-to-end design across<br></span><span style="color: rgb(200, 16, 46); font-family: Didot, 'Bodoni Moda', 'Bodoni 72', serif; font-style: italic; font-size: clamp(24px, 2.222vw, 32px); line-height: 1.1; letter-spacing: -0.01em">content, conversation, and interaction.</span></p><p style="grid-column: 1 / span 7; align-self: start; margin: calc(64px * var(--vy)) 0 0 0; font-size: 19px; line-height: 1.7; margin-top: 32px; width: 843px; max-width: 100%">I designed the voice and tone framework, personalization sketches, and AI response logic.</p>
@@ -1673,7 +1682,7 @@ img, video{ max-width: 100%; }
 <figure style="grid-column: 1 / -1; margin: calc(48px * var(--vy)) 0 0 0; display: flex; flex-direction: column; gap: 12px">
 <video controls="" preload="metadata" playsinline="" poster="images/qualtrics-voice-settings-poster.jpg" aria-label="Prototype: opening AI voice settings in Qualtrics Assist, choosing a length and tone, and seeing the reply change" style="display: block; width: 100%; height: auto; aspect-ratio: 1280 / 804; background: #2A2622; border-radius: 5px"><source src="images/qualtrics-voice-settings.mp4" type="video/mp4"></video>
 <figcaption style="font-size: 12px; font-weight: 600; line-height: 1.45; color: #D9D3C8"><i>Personalization flow</i></figcaption><div style="grid-column: 1 / -1; margin-top: calc(48px * var(--vy)); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 32px">
-<div style="border-top-width: 1px; border-top-style: solid; border-top-color: #141210; padding-top: 20px; display: flex; flex-direction: column; gap: 10px; border-color: #fafafa; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px"><div style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C8102E">Formality</div><div style="font-size: 16px; color: #f6f3ee; line-height: 1.5">Left the UI entirely. Neutral became the fixed default.</div></div>
+<div style="border-top-width: 1px; border-top-style: solid; border-top-color: #141210; padding-top: 20px; display: flex; flex-direction: column; gap: 10px; border-color: #fafafa; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px"><div style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C8102E">Formality</div><div style="font-size: 16px; color: #f6f3ee; line-height: 1.5">Left the UI entirely. <b>Neutral</b> became the fixed default.</div></div>
 <div style="border-top-width: 1px; border-top-style: solid; border-top-color: #141210; padding-top: 20px; display: flex; flex-direction: column; gap: 10px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-color: #fafafa"><div style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C8102E">Tone</div><div style="font-size: 16px; color: #f6f3ee; line-height: 1.5">Redesigned the checkboxes to a single dropdown, so each reply is consistent.</div></div>
 <div style="border-top-width: 1px; border-top-style: solid; border-top-color: #141210; padding-top: 20px; display: flex; flex-direction: column; gap: 10px; border-color: #fafafa; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px"><div style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C8102E">Length</div><div style="font-size: 16px; color: #f6f3ee; line-height: 1.5">From radio buttons to a dropdown of five tiers, each with a one-line description.</div></div>
 <div style="border-top-width: 1px; border-top-style: solid; border-top-color: #141210; padding-top: 20px; display: flex; flex-direction: column; gap: 10px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-color: #fafafa"><div style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C8102E">Navigation</div><div style="font-size: 16px; color: #f6f3ee; line-height: 1.5"><b>AI voice settings</b>&nbsp;joined the overflow menu's settings.</div></div>
@@ -1689,7 +1698,7 @@ img, video{ max-width: 100%; }
 </figure>
 </section><section style="flex-shrink: 0; padding: calc(100px * var(--vy)) var(--gx) 0 var(--gx); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; align-items: start; padding-top: calc(96px * var(--vy)); padding-bottom: calc(64px * var(--vy))">
 <h2 style="grid-column: 1 / -1; margin: 0 0 40px 0; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; margin-bottom: 32px; font-size: clamp(24px, 3.333vw, 48px); line-height: 1.05; letter-spacing: -0.01em">(re)setting guidelines to criteria</h2>
-<p style="grid-column: 1 / span 7; margin: 0 0 0 0; font-size: 19px; line-height: 1.7; width: 1258px; max-width: calc(100vw - 2 * var(--gx))">What shipped in 2024 was a style guide of traits. I rebuilt it as a scoring rubric of three criteria, each with a four-point scale.</p>
+<p style="grid-column: 1 / span 7; margin: 0 0 0 0; font-size: 19px; line-height: 1.7; width: 1258px; max-width: calc(100vw - 2 * var(--gx))">What shipped in 2024 was a style guide of traits. Revisiting it this year, I rebuilt it as a scoring rubric of three criteria with a four-point scale.</p>
 <figure style="grid-column: 1 / -1; margin: calc(48px * var(--vy)) 0 0 0; display: flex; flex-direction: column; gap: 12px">
 <div class="scroll-x" role="region" tabindex="0" aria-label="Model evaluation criteria" style="grid-column: 1 / -1"><div class="wide-table"><div role="table" aria-label="Model evaluation criteria" style="border: 1px solid #141210; background: #FFFFFF; display: grid; grid-template-columns: 248px repeat(4, minmax(0, 1fr))">
 <div role="columnheader" style="padding: 16px 20px 16px 20px; border-bottom: 1px solid #141210; font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #5E574D">Criterion</div>
@@ -1713,7 +1722,7 @@ img, video{ max-width: 100%; }
 <div role="cell" style="padding: 22px 20px 22px 20px; border-left: 1px solid #D9D3C8; font-size: 15px; line-height: 1.5">Over the limit, or buries the main point</div>
 <div role="cell" style="padding: 22px 20px 22px 20px; border-left: 1px solid #D9D3C8; font-size: 15px; line-height: 1.5">Off-task, misleading, or ignores the length setting</div>
 </div></div></div>
-<figcaption style="font-size: 12px; font-weight: 600; line-height: 1.45; color: #5E574D"><i>Model evaluation criteria, built from the original AI voice framework</i></figcaption><p style="grid-column: 1 / span 8; margin: 0 0 0 0; font-size: 19px; line-height: 1.7; width: 1258px; max-width: calc(100vw - 2 * var(--gx)); padding-top: 32px">I’d left Qualtrics before Assist reached EA but supported its journey there with the UXR lead. <b>About half</b>&nbsp;of customers eagerly adopted the tool in their workflows, and they asked for customizable voice settings and sentiment analysis. If I had stayed, I would've delivered on both design opportunities.<br><br>In retrospect, this work—more than any single guideline—is <b>the throughline</b> in how I think about AI voice today.</p></figure>
+<figcaption style="font-size: 12px; font-weight: 600; line-height: 1.45; color: #5E574D"><i>Model evaluation criteria, built from the original AI voice framework</i></figcaption><p style="grid-column: 1 / span 8; margin: 0 0 0 0; font-size: 19px; line-height: 1.7; width: 1258px; max-width: calc(100vw - 2 * var(--gx)); padding-top: 32px">I’d left Qualtrics before Assist reached EA but supported its journey there with the UXR lead. <b>About half</b>&nbsp;of customers eagerly adopted the tool in their workflows, and they asked for more customizable settings and sentiment analysis. Both were opportunities I'd have loved to take on.<br><br>In retrospect, this work—more than any single guideline—is <b>the throughline</b> in how I think about AI voice today.</p></figure>
 
 </section>
 
@@ -1780,7 +1789,7 @@ img, video{ max-width: 100%; }
 <div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; background: #8A8378; border-radius: 5px"></div><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; font-size: 24px; line-height: 1.15">muted</div><div style="font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace; font-size: 12px; color: #5E574D">#8A8378</div><div style="font-size: 14px; line-height: 1.5; color: #5E574D">Struck-through options, inactive tabs</div></div>
 
 <div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; background: #D9D3C8; border: 1px solid #D9D3C8; border-radius: 5px"></div><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; font-size: 24px; line-height: 1.15">almond</div><div style="font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace; font-size: 12px; color: #5E574D">#D9D3C8</div><div style="font-size: 14px; line-height: 1.5; color: #5E574D">Dividers in rows and cells, mono text on <b>ink</b></div></div><div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; background: #F6F3EE; border: 1px solid #D9D3C8; border-radius: 5px; border-color: #f6f3ee"></div><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; font-size: 24px; line-height: 1.15">cream</div><div style="font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace; font-size: 12px; color: #5E574D">#F6F3EE</div><div style="font-size: 14px; line-height: 1.5; color: #5E574D">Secondary panels, body text on <b>ink</b></div></div>
-<div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; background: #F2F2F2; border: 1px solid #D9D3C8; border-radius: 5px; border-color: #F2F2F2"></div><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; font-size: 24px; line-height: 1.15">placeholder</div><div style="font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace; font-size: 12px; color: #5E574D">#F2F2F2</div><div style="font-size: 14px; line-height: 1.5; color: #5E574D">Image wells</div></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; background: #F2F2F2; border: 1px solid #D9D3C8; border-radius: 5px; border-color: #F2F2F2"></div><div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; font-size: 24px; line-height: 1.15">placeholder</div><div style="font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace; font-size: 12px; color: #5E574D">#F2F2F2</div><div style="font-size: 14px; line-height: 1.5; color: #5E574D">Image wells, UI strings</div></div>
 
 </div>
 
@@ -1925,6 +1934,7 @@ img, video{ max-width: 100%; }
     if (anchor) requestAnimationFrame(function(){ document.getElementById(anchor).scrollIntoView(); });
     else window.scrollTo({ top: 0, behavior: 'instant' });
     closeMenu();
+    if (typeof syncLightboxes === 'function') { lightboxes.forEach(function(l){ l.input.checked = false; }); syncLightboxes(); }
     buildOutline(id);
   }
 
@@ -2024,9 +2034,24 @@ img, video{ max-width: 100%; }
   }
   window.addEventListener('scroll', updateOutline, { passive: true });
 
+  // Click to enlarge: lift each overlay out to <body> so it always covers the screen
+  // (inside an animated section a "fixed" overlay would be pinned to that section instead)
+  var lightboxes = [];
+  document.querySelectorAll('input[type="checkbox"].skz-r').forEach(function(input){
+    var ov = input.parentElement.querySelector('.skz-ov');
+    if (!ov) return;
+    document.body.appendChild(ov);
+    lightboxes.push({ input: input, ov: ov });
+    input.addEventListener('change', syncLightboxes);
+  });
+  function syncLightboxes(){
+    var any = false;
+    lightboxes.forEach(function(l){ l.ov.classList.toggle('is-open', l.input.checked); if (l.input.checked) any = true; });
+    document.documentElement.classList.toggle('lb-open', any);
+  }
   // Escape closes an enlarged image
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') document.querySelectorAll('input[type="checkbox"].skz-r:checked').forEach(function(i){ i.checked = false; });
+    if (e.key === 'Escape') { lightboxes.forEach(function(l){ l.input.checked = false; }); syncLightboxes(); }
   });
   route();
 
