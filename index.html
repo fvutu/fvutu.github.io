@@ -209,6 +209,7 @@ img, video{ max-width: 100%; }
 .outline-list a::before{ content: ""; position: absolute; left: 16px; top: 50%; width: 5px; height: 5px; margin-top: -2.5px; border-radius: 50%; background: transparent; transition: background .2s; }
 .outline-list a:hover{ color: #C8102E; }
 .outline-list a.is-active{ color: #141210; }
+.outline-list b{ font-weight: 600; }
 .outline-list a.is-active::before{ background: #C8102E; }
 .to-top{ width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid #141210; background: #FAFAFA; color: #141210; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s, transform .2s, visibility .2s, background .2s, color .2s; box-shadow: 0 6px 24px rgba(20,18,16,.08); }
 .to-top.is-visible{ opacity: 1; visibility: visible; transform: none; }
@@ -1443,7 +1444,7 @@ img, video{ max-width: 100%; }
 <h2 style="grid-column: 1 / -1; margin: 0 0 calc(48px * var(--vy)) 0; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; font-weight: 400; color: #FAFAFA; font-size: clamp(24px, 3.333vw, 48px); line-height: 1.05; letter-spacing: -0.01em">the defining moment</h2>
 <div style="grid-column: 1 / span 6; border-top: 1px solid #FFFFFF; padding-top: 16px; display: flex; flex-direction: column; gap: 12px; width: 405px; max-width: 100%">
 <div style="font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; color: #C8102E; font-size: clamp(46px, 6.667vw, 96px); line-height: 1; letter-spacing: -0.015em">31%</div>
-<div style="font-size: 17px; line-height: 1.55">of players clicking <b>Join</b> discovering new games</div>
+<div style="font-size: 17px; line-height: 1.55">of players clicking <b>Join</b>&nbsp;and discovering new games</div>
 </div>
 <p style="grid-column: 8 / span 5; margin: 0 0 0 0; font-family: 'Didot', 'Bodoni Moda', 'Bodoni 72', serif; color: #FFFFFF; width: 465px; max-width: 100%; font-size: clamp(24px, 2.500vw, 36px); line-height: 1; letter-spacing: -0.01em">A Moment became the quickest path from “that looks fun” to playing it.</p>
 <div style="grid-column: 1 / -1; margin-top: calc(64px * var(--vy)); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; align-items: start">
@@ -1975,6 +1976,22 @@ img, video{ max-width: 100%; }
   function setCollapsed(c){ collapsed = c; outline.classList.toggle('is-collapsed', c); otoggle.setAttribute('aria-expanded', String(!c)); }
   otoggle.addEventListener('click', function(){ setCollapsed(!collapsed); });
   toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  // copy a heading's text for the outline, keeping only its bold and italic
+  function richCopy(node){
+    var frag = document.createDocumentFragment();
+    node.childNodes.forEach(function(n){
+      if (n.nodeType === 3) { frag.appendChild(document.createTextNode(n.textContent)); return; }
+      if (n.nodeType !== 1) return;
+      var st = n.style || {}, tag = n.tagName;
+      var bold = tag === 'B' || tag === 'STRONG' || parseInt(st.fontWeight, 10) >= 600;
+      var ital = tag === 'I' || tag === 'EM' || st.fontStyle === 'italic';
+      var inner = richCopy(n), out = inner;
+      if (ital) { var i = document.createElement('i'); i.appendChild(out); out = i; }
+      if (bold) { var b = document.createElement('b'); b.appendChild(out); out = b; }
+      frag.appendChild(out);
+    });
+    return frag;
+  }
   function buildOutline(id){
     olist.innerHTML = ''; heads = [];
     if (cases.indexOf(id) === -1) { outline.hidden = true; return; }
@@ -1986,7 +2003,7 @@ img, video{ max-width: 100%; }
       h.setAttribute('data-outline', '');
       heads.push(h);
       var li = document.createElement('li'), a = document.createElement('a');
-      a.href = '#' + h.id; a.textContent = h.textContent.trim(); a.dataset.target = h.id;
+      a.href = '#' + h.id; a.appendChild(richCopy(h)); a.dataset.target = h.id;
       li.appendChild(a); olist.appendChild(li);
     });
     outline.hidden = heads.length === 0;
