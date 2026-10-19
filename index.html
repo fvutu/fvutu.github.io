@@ -58,7 +58,7 @@ img, video{ max-width: 100%; }
 .site-nav a{ color: inherit; }
 .site-nav a:hover{ color: #C8102E; }
 .site-nav ul{ display: flex; gap: 40px; list-style: none; margin: 0; padding: 0; }
-.site-nav a[aria-current="page"]{ border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.site-nav a[aria-current="page"]:not(.brand){ color: #C8102E; text-decoration: none; }
 /* while scrolling: dark bar, white text */
 .site-nav.is-scrolled{ background: #141210; color: #FAFAFA; border-bottom-color: #141210; }
 .site-nav.is-scrolled a:hover{ color: #C8102E; }
@@ -194,8 +194,7 @@ img, video{ max-width: 100%; }
 .nav-menu a .nm-n{ color: #C8102E; font-weight: 600; }
 .nav-menu a:hover, .nav-menu a:focus-visible{ color: #C8102E; }
 .nav-menu a, .nav-menu a[aria-current="page"]{ border-bottom: 0; padding-bottom: 12px; text-decoration: none; }
-.nav-menu a:hover .nm-t, .nav-menu a:focus-visible .nm-t, .nav-menu a[aria-current="page"] .nm-t{ text-decoration: underline; text-underline-offset: 4px; }
-.nav-menu a .nm-n{ text-decoration: none !important; }
+.site-nav .nav-menu a[aria-current="page"]{ color: #C8102E; }
 .site-nav.is-scrolled .nav-menu{ background: #141210; color: #FAFAFA; border-color: #3A3631; }
 .site-nav.is-scrolled .nav-menu a:hover{ color: #C8102E; }
 @media (max-width: 560px){ .nav-menu{ position: fixed; top: var(--nav-h); left: 0; right: 0; min-width: 0; border-left: 0; border-right: 0; } .nav-menu a{ padding: 14px 20px; } .nav-menu::before{ display: none; } }
@@ -970,7 +969,7 @@ html.lb-open{ overflow: hidden; }
 </main>
 
 <!-- ===================== PAGE: ai-content-systems ===================== -->
-<main class="page" id="page-ai-content-systems" data-title="content systems for ai — in writing mode" style="background: #FAFAFA" hidden>
+<main class="page" id="page-ai-content-systems" data-title="content systems for AI — in writing mode" style="background: #FAFAFA" hidden>
 
 
 
