@@ -1,0 +1,2 @@
+# bare /work has no page of its own; send it to the work list on the homepage
+/work  /#work  301
